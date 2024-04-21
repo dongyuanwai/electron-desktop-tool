@@ -1,0 +1,62 @@
+{
+  "name": "electron-desktop-tool",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./src-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "electron:build": "vite build && electron-builder"
+  },
+  "build": {
+    "productName": "ElectronDeskTopTool",
+    "appId": "dyy.dongyuanwai",
+    "copyright": "dyy.dongyuanwai © 2024",
+    "compression": "maximum",
+    "asar": true,
+    "directories": {
+      "output": "release/"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ElectronDeskTopTool"
+    },
+    "win": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
+    },
+    "linux": {
+      "icon": "./public/logo.ico",
+      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
+    }
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3",
+    "electron-devtools-installer": "^3.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-electron": "^0.28.5",
+    "vue-tsc": "^2.0.6"
+  }
+}
