@@ -8,7 +8,7 @@ export default defineConfig({
         vue(),
         electron({
             // 主进程入口文件
-            entry: './src-electron/main.js'
+            entry: ["src-electron/main.ts", "src-electron/preload.ts"],
         })
     ],
     /*开发服务器选项*/

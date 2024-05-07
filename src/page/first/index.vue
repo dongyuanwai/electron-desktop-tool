@@ -1,6 +1,6 @@
 <template>
     <h1>
-      这是 second 页面
+      这是 first 页面
     </h1>
     <DragPopup v-model:visible="show" :isCenterShow="show"  >
       <div class="box">12121</div>
@@ -15,7 +15,7 @@
   import DragPopup from '../../components/DragPopup.vue';
   const router = useRouter()
   const go = () => {
-    router.push('/');
+    router.push('/second');
   };
   
   const show = ref(false)
