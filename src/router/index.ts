@@ -10,8 +10,8 @@ const router = createRouter({
       component: () => import('../page/first/index.vue')
     },
     { 
-      path: '/second', 
-      component: () => import('../page/second/index.vue') 
+      path: '/componentsNav', // 组件导航页
+      component: () => import('../page/componentsNav/index.vue') 
     },
   ],
 })

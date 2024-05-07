@@ -28,16 +28,13 @@ import {
         webSecurity: false,
         nodeIntegration: true,
         contextIsolation: true,
-  
         webviewTag: true,
-  
         preload: path.join(__dirname, "preload.js"),
       },
     });
-    win.webContents.openDevTools()
     if (process.env.VITE_DEV_SERVER_URL) {
       win.loadURL(process.env.VITE_DEV_SERVER_URL);
-      // win.webContents.openDevTools();
+      win.webContents.openDevTools();
     } else {
       win.loadFile(path.join(__dirname, "../dist/index.html"));
     }
@@ -76,7 +73,6 @@ import {
   ipcMain.handle(
     'ev:send-desktop-capturer_source',
     async (_event, _args) => {
-      console.log('222')
       return [
         ...(await desktopCapturer.getSources({ types: ["window", "screen"] })),
         ...(await selfWindws()),

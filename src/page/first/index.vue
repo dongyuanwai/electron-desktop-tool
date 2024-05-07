@@ -5,7 +5,7 @@
     <DragPopup v-model:visible="show" :isCenterShow="show"  >
       <div class="box">12121</div>
     </DragPopup>
-    <button @click="go">去first页面</button>
+    <button @click="go">组件导航页</button>
     <button @click="show=!show">开启popup</button>
   </template>
   
@@ -15,7 +15,7 @@
   import DragPopup from '../../components/DragPopup.vue';
   const router = useRouter()
   const go = () => {
-    router.push('/second');
+    router.push('/componentsNav');
   };
   
   const show = ref(false)
