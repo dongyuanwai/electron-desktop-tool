@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=ElectronDeskTopTool
+Name[zh_CN]=ElectronDeskTopTool
+Exec=/opt/ElectronDeskTopTool/electron-desktop-tool %U
+Icon=/opt/ElectronDeskTopTool/entries/512x512.png
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Messaging;
+
+

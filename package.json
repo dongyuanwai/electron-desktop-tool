@@ -2,21 +2,26 @@
   "name": "electron-desktop-tool",
   "private": true,
   "version": "0.0.0",
+  "homepage": "www.dongyuanwai.cn",
+  "author": {
+    "name": "dongyuanwai",
+    "email": "yuanwaidong@163.com"
+  },
   "main": "./dist-electron/main.js",
   "scripts": {
-    "dev": "chcp 65001 && vite",
+    "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "electron:build": "vite build && electron-builder"
+    "electron:build": "vite build && electron-builder",
+    "build-icon": "electron-icon-builder --input=./public/icon.png --output=release --flatten"
   },
   "build": {
     "productName": "ElectronDeskTopTool",
-    "appId": "dyy.dongyuanwai",
+    "appId": "com.dongyuanwai",
     "copyright": "dyy.dongyuanwai © 2024",
     "compression": "maximum",
-    "asar": true,
     "directories": {
-      "output": "release/"
+      "output": "release"
     },
     "nsis": {
       "oneClick": false,
@@ -36,11 +41,20 @@
         }
       ]
     },
-    "mac": {
-      "icon": "./public/logo.ico",
-      "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
-    },
     "linux": {
+      "icon": "./release/icons",
+      "target": "deb"
+    },
+    "deb": {
+      "afterInstall": "./entries/install.sh"
+    },
+    "extraFiles": [
+      {
+        "from": "entries",
+        "to": "entries"
+      }
+    ],
+    "mac": {
       "icon": "./public/logo.ico",
       "artifactName": "${productName}-v${version}-${platform}-setup.${ext}"
     }
@@ -54,6 +68,7 @@
     "electron": "^30.0.1",
     "electron-builder": "^24.13.3",
     "electron-devtools-installer": "^3.2.0",
+    "electron-icon-builder": "^2.0.1",
     "js-web-screen-shot": "^1.9.9-rc.18",
     "less": "^4.2.0",
     "typescript": "^5.2.2",
